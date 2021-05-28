@@ -24,3 +24,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/students', 'StudentsController@index')->middleware('auth');
+
+Route::post('/students/add', 'StudentsController@store')->middleware('auth');
+
+Route::delete('/students/delete/{student}', 'StudentsController@destroy')->middleware('auth');
+
+Route::patch('/students/edit/{student}', 'StudentsController@update');
