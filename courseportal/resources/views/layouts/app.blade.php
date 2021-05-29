@@ -108,7 +108,7 @@
                                     <a href="/students">Students</a>
                                 </li>
                                 <li>
-                                    <a href="#">Page 2</a>
+                                    <a href="/teachers">Teachers</a>
                                 </li>
                                 <li>
                                     <a href="#">Page 3</a>
@@ -221,7 +221,6 @@
                 $("#editaddress").val(data[2]);
                 $("#editemail").val(data[3]);
                 $("#editStudentModal").modal('show');
-
             });
         });
     </script>
