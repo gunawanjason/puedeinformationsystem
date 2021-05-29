@@ -29,4 +29,12 @@ Route::post('/students/add', 'StudentsController@store')->middleware('auth');
 
 Route::delete('/students/delete/{student}', 'StudentsController@destroy')->middleware('auth');
 
-Route::patch('/students/edit/{student}', 'StudentsController@update');
+Route::patch('/students/edit/{student}', 'StudentsController@update')->middleware('auth');
+
+Route::get('/teachers', 'TeachersController@index')->middleware('auth');
+
+Route::post('/teachers/add', 'TeachersController@store')->middleware('auth');
+
+Route::delete('/teachers/delete/{teacher}', 'TeachersController@destroy')->middleware('auth');
+
+Route::patch('/teachers/edit/{teacher}', 'TeachersController@update')->middleware('auth');

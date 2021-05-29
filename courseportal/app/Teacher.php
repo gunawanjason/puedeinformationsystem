@@ -5,10 +5,9 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Student extends Model
+class Teacher extends Model
 {
     use SoftDeletes;
-    protected $guarded = ['id'];
     public function users()
     {
         return $this->hasOne('App\User','foreign_id');

@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 
-class StudentsController extends Controller
+class TeachersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +13,9 @@ class StudentsController extends Controller
      */
     public function index()
     {
-        $users = \App\User::where('actor_id','=','1')->paginate(20);
-        //$students = \App\Student::all();
-        return view('students.index', ['users'=> $users]);
+        $users = \App\User::where('actor_id','=','2')->paginate(20);
+        //$teachers = \App\Teacher::paginate(20);
+        return view('teachers.index', ['users'=> $users]);
     }
 
     /**
@@ -63,22 +62,22 @@ class StudentsController extends Controller
 
         $validatedData = $request->validate($rules, $customMessages);*/
 
-        $student = new \App\Student;
-        $student->name = $request->name;
-        $student->birthdate = $request->birthdate;
-        $student->short_description = $request->short_desc;
+        $teacher = new \App\Teacher;
+        $teacher->name = $request->name;
+        $teacher->birthdate = $request->birthdate;
+        $teacher->short_description = $request->short_desc;
 
-        $student->save();
+        $teacher->save();
 
         $user = new \App\User;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
-        $user->actor_id = '1';
-        $user->foreign_id = \App\Student::max('id');
+        $user->actor_id = '2';
+        $user->foreign_id = \App\Teacher::max('id');
 
         $user->save();
 
-        return redirect('/students')->with('Pesan', 'Data berhasil disimpan!');
+        return redirect('/teachers')->with('Pesan', 'Data berhasil disimpan!');
     }
 
     /**
@@ -112,10 +111,10 @@ class StudentsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $student = \App\User::where('id','=', $id);
-        $student_id = $student->value('foreign_id');
+        $teacher = \App\User::where('id','=', $id);
+        $teacher_id = $teacher->value('foreign_id');
 
-        \App\Student::where('id', $student_id)
+        \App\Teacher::where('id', $teacher_id)
             -> update([
                     'name' => $request->name,
                     'birthdate' => $request->birthdate,
@@ -131,7 +130,7 @@ class StudentsController extends Controller
                     'password' => bcrypt($request->password)
                 ]);
         }
-        return redirect('/students')->with('Pesan', 'Data berhasil di update !');
+        return redirect('/teachers')->with('Pesan', 'Data berhasil di update !');
     }
 
     /**
@@ -142,19 +141,10 @@ class StudentsController extends Controller
      */
     public function destroy($id)
     {
-        $student = \App\User::where('id','=', $id);
-
-        //echo "<br>sql: " . $student->toSql();
-        //echo "<br>" . Str::replaceArray('?', $student->getBindings(), $student->toSql());
-        //dd($student->toSql(), $student->getBindings());
-
-        $student_id = $student->value('foreign_id');
-        //echo $student_id;
-
-
-        \App\Student::destroy($student_id);
+        $teacher = \App\User::where('id','=', $id);
+        $teacher_id = $teacher->value('foreign_id');
+        \App\Teacher::destroy($teacher_id);
         \App\User::destroy($id);
-        return redirect('/students')->with('Pesan', 'Data berhasil dihapus!');
-        //return redirect('/students')->with('Pesan', $student_id);
+        return redirect('/teachers')->with('Pesan', 'Data berhasil dihapus!');
     }
 }

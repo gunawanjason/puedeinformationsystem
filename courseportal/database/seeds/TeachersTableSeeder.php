@@ -1,10 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-//use Faker\Generator as Faker;
 use Faker\Factory as Faker;
 
-class StudentsTableSeeder extends Seeder
+class TeachersTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -20,7 +19,7 @@ class StudentsTableSeeder extends Seeder
             $email = $faker->unique()->email;
             $birthdate = $faker->date;
             $password = bcrypt('12345');
-            App\Student::create([
+            App\Teacher::create([
                 'name' => $name,
                 'birthdate' => $birthdate,
                 'short_description' => '-',
@@ -28,8 +27,8 @@ class StudentsTableSeeder extends Seeder
             App\User::create([
                 'email' => $email,
                 'password' => $password,
-                'actor_id' => 1,
-                'foreign_id' => App\Student::max('id'),
+                'actor_id' => 2,
+                'foreign_id' => App\Teacher::max('id'),
             ]);
         }
     }
