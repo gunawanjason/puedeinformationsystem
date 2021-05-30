@@ -45,6 +45,10 @@ class User extends Authenticatable
     {
         return $this->belongsTo('App\Teacher','foreign_id');
     }
+    public function staffs()
+    {
+        return $this->belongsTo('App\Staff','foreign_id');
+    }
 
 
     use SoftDeletes;
