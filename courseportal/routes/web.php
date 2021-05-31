@@ -38,3 +38,11 @@ Route::post('/teachers/add', 'TeachersController@store')->middleware('auth');
 Route::delete('/teachers/delete/{teacher}', 'TeachersController@destroy')->middleware('auth');
 
 Route::patch('/teachers/edit/{teacher}', 'TeachersController@update')->middleware('auth');
+
+Route::get('/staffs', 'StaffsController@index')->middleware('auth');
+
+Route::post('/staffs/add', 'StaffsController@store')->middleware('auth');
+
+Route::delete('/staffs/delete/{staff}', 'StaffsController@destroy')->middleware('auth');
+
+Route::patch('/staffs/edit/{staff}', 'StaffsController@update')->middleware('auth');

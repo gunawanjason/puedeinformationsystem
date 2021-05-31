@@ -111,7 +111,7 @@
                                     <a href="/teachers">Teachers</a>
                                 </li>
                                 <li>
-                                    <a href="#">Page 3</a>
+                                    <a href="/staffs">Staffs</a>
                                 </li>
                             </ul>
                         </li>
