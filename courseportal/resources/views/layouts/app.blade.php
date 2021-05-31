@@ -113,6 +113,9 @@
                                 <li>
                                     <a href="/staffs">Staffs</a>
                                 </li>
+                                <li>
+                                    <a href="/subjects">Subjects</a>
+                                </li>
                             </ul>
                         </li>
                         <li>

@@ -85,7 +85,7 @@
 				</td>
 				<td>{{$s->email}}</td>
 				<td>
-					<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#edit-{{$s->students->id}}">Edit</button>
+					<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#edit-{{$s->id}}">Edit</button>
 					
 					<!--Modal for Edit Data-->
 					<div class="modal fade" id="edit-{{$s->id}}" tabindex="-1">

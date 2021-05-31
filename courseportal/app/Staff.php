@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Staff extends Model
 {
-    protected $table = 'staffs'; //why????????
+    protected $table = 'staffs';
     use SoftDeletes;
     public function users()
     {
