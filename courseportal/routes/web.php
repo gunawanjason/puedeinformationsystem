@@ -54,3 +54,5 @@ Route::post('/subjects/add', 'SubjectsController@store')->middleware('auth');
 Route::delete('/subjects/delete/{student}', 'SubjectsController@destroy')->middleware('auth');
 
 Route::patch('/subjects/edit/{student}', 'SubjectsController@update')->middleware('auth');
+
+Route::get('/transactions', 'TransactionsController@index')->middleware('auth');

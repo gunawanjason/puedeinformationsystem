@@ -13,4 +13,8 @@ class Student extends Model
     {
         return $this->hasOne('App\User','foreign_id');
     }
+    public function transactions()
+    {
+        return $this->belongsToMany('App\Transaction','transactions','id');
+    }
 }

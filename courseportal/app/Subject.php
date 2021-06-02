@@ -9,4 +9,8 @@ class Subject extends Model
 {
     use SoftDeletes;
     protected $table = 'subjects';
+    public function transactions()
+    {
+        return $this->belongsToMany('App\Transaction','transactions','id');
+    }
 }

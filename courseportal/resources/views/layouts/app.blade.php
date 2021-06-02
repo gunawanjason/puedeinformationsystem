@@ -119,6 +119,12 @@
                             </ul>
                         </li>
                         <li>
+                            <a href="/transactions">
+                                <i class="fas fa-briefcase"></i>
+                                Transactions
+                            </a>
+                        </li>
+                        <li>
                             <a href="#">
                                 <i class="fas fa-image"></i>
                                 Portfolio
